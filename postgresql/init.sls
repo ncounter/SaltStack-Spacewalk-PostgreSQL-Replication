@@ -5,6 +5,22 @@ postgresql:
       - postgresql93-server
       - postgresql93
       - postgresql93-test
+  service:
+    - running
+    - enable: True
+    - reload: True
+    - require:
+      - pkg: postgresql
+      - cmd: initdb-service
+    - watch:
+      - file: /var/lib/pgsql/data/postgresql.conf
+      - file: /var/lib/pgsql/data/pg_hba.conf
+
+initdb-service:
+  cmd.run:
+    - name: systemctl start postgresql
+    - require:
+      - pkg: postgresql
 
 pg-pkgs:
   pkg.installed:
