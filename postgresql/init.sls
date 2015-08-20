@@ -47,3 +47,7 @@ pg-pkgs:
     - onlyif: ls /var/lib/pgsql/data
     - require:
       - pkg: postgresql
+
+SuSEfirewall2:
+  service.dead:
+    - enable: False
