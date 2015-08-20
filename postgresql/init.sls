@@ -18,7 +18,7 @@ postgresql:
 
 initdb-service:
   cmd.run:
-    - name: systemctl start postgresql
+    - name: systemctl start postgresql && systemctl stop postgresql
     - require:
       - pkg: postgresql
 
