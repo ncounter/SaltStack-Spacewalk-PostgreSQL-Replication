@@ -1,6 +1,8 @@
 base:
   'postgresql*':
-    - postgresql
+    - postgresql-pkg
+    - services
+    - postgresql-spacewalk
   'spacewalk':
     - spacewalk
 
