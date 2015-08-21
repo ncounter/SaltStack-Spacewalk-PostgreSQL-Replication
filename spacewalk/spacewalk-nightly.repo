@@ -2,5 +2,5 @@
 name=Spacewalk nightly
 baseurl=http://yum.spacewalkproject.org/nightly/RHEL/7/$basearch/
 gpgkey=http://yum.spacewalkproject.org/RPM-GPG-KEY-spacewalk-2014
-enabled=0
+enabled=1
 gpgcheck=0
