@@ -9,7 +9,6 @@ pgpool-pkg:
     - require:
       - pkg: pgpool-source
 
-
 /etc/pgpool-II/pgpool.conf:
   file.managed:
     - source: salt://pgpool/pgpool.conf
@@ -21,6 +20,17 @@ pgpool-pkg:
 
 socket-dir:
   cmd.run:
-    - name: mkdir /var/run/postgresql
     - user: root
     - mode: 764
+    - name: mkdir /var/run/postgresql
+    - unless: ls /var/run/postgresql
+
+pgpool-start:
+  cmd.run:
+    - user: root
+    - name: pgpool
+    - watch:
+      - file: /etc/pgpool-II/pgpool.conf
+    - require:
+      - pkg: pgpool-pkg
+      - cmd: socket-dir
