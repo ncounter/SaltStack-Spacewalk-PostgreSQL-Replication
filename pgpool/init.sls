@@ -25,6 +25,13 @@ socket-dir:
     - name: mkdir /var/run/postgresql
     - unless: ls /var/run/postgresql
 
+run-dir:
+  cmd.run:
+    - user: root
+    - mode: 764
+    - name: mkdir /var/run/pgpool
+    - unless: ls /var/run/pgpool
+
 pgpool-start:
   cmd.run:
     - user: root
@@ -34,3 +41,4 @@ pgpool-start:
     - require:
       - pkg: pgpool-pkg
       - cmd: socket-dir
+      - cmd: run-dir
