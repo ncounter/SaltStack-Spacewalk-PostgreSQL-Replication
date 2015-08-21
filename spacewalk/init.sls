@@ -30,3 +30,14 @@ firewalld:
   service.dead:
     - enable: False
 
+spacewalk-install:
+  pkg.installed:
+    - name: spacewalk-postgresql
+    - require:
+      - file: /etc/yum.repos.d/spacewalk-nightly.repo
+      - file: /etc/yum.repos.d/spacewalk-source.repo
+      - file: /etc/yum.repos.d/spacewalk.repo
+      - file: /etc/yum.repos.d/jpackage-generic.repo
+      - file: /usr/tmp/spacewalk-config.txt
+      - pkg: epel-source
+      - service: pgpool-start
