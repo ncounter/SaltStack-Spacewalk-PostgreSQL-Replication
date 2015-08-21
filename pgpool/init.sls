@@ -18,3 +18,9 @@ pgpool-pkg:
     - onlyif: ls /etc/pgpool-II
     - require:
       - pkg: pgpool-pkg
+
+socket-dir:
+  cmd.run:
+    - name: mkdir /var/run/postgresql
+    - user: root
+    - mode: 764
