@@ -17,6 +17,10 @@ include:
   file.managed:
     - source: salt://spacewalk/jpackage-generic.repo
 
+/usr/tmp/spacewalk-config.txt:
+  file.managed:
+    - source: salt://spacewalk/spacewalk-config.txt
+
 epel-source:
   pkg.installed:
     - sources:
