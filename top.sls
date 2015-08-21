@@ -5,4 +5,5 @@ base:
     - postgresql-spacewalk
   'spacewalk':
     - pgpool
+    - spacewalk
 
