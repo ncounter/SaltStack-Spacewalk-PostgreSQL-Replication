@@ -33,9 +33,10 @@ run-dir:
     - unless: ls /var/run/pgpool
 
 pgpool-start:
-  cmd.run:
-    - user: root
+  service.running:
     - name: pgpool
+    - enable: True
+    - reload: True
     - watch:
       - file: /etc/pgpool-II/pgpool.conf
     - require:
