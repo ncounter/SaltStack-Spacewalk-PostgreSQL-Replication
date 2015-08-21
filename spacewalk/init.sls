@@ -41,3 +41,9 @@ spacewalk-install:
       - file: /usr/tmp/spacewalk-config.txt
       - pkg: epel-source
       - service: pgpool-start
+
+spacewalk-setup:
+  cmd.run:
+    - name: spacewalk-setup --disconnected --external-postgresql --answer-file=/usr/tmp/spacewalk-config.txt
+    - require:
+      - pkg: spacewalk-install
