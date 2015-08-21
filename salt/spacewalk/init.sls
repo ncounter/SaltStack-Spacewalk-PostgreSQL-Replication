@@ -45,5 +45,6 @@ spacewalk-install:
 spacewalk-setup:
   cmd.run:
     - name: spacewalk-setup --disconnected --external-postgresql --answer-file=/usr/tmp/spacewalk-config.txt
+    - creates: /var/log/rhn/rhn_installation.log
     - require:
       - pkg: spacewalk-install
