@@ -21,3 +21,8 @@ epel-source:
   pkg.installed:
     - sources:
       - epel-release: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+firewalld:
+  service.dead:
+    - enable: False
+
