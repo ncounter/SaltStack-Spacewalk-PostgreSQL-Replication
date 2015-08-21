@@ -12,3 +12,7 @@ include:
 /etc/yum.repos.d/spacewalk.repo:
   file.managed:
     - source: salt://spacewalk/spacewalk.repo
+
+/etc/yum.repos.d/jpackage-generic.repo:
+  file.managed:
+    - source: salt://spacewalk/jpackage-generic.repo
