@@ -8,3 +8,13 @@ pgpool-pkg:
     - name: pgpool-II-pg93.x86_64
     - require:
       - pkg: pgpool-source
+
+
+/etc/pgpool-II/pgpool.conf:
+  file.managed:
+    - source: salt://pgpool/pgpool.conf
+    - user: root
+    - mode: 764
+    - onlyif: ls /etc/pgpool-II
+    - require:
+      - pkg: pgpool-pkg
